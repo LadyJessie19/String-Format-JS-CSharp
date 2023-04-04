@@ -17,7 +17,16 @@ function readAfterDot(word){
   }
   return k
 }
-
+function readBeforeDot(){
+  const word = $('#formatSel').val();
+  const beforeDot = (word.split("."))[0];
+  let k = 0;
+  for (let i = 0; i < beforeDot.length; i++) {
+    const element = beforeDot[i];
+    if( element === '0' || element === '#') { k++ }
+  }
+  return $("#pRes").text(`Antes do ponto existem ${k} caracteres válidos`);
+}
 function showFormat(){
   const format = $('#formatSel').val();
   const number = $('#inputDec').val();

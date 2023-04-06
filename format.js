@@ -46,7 +46,7 @@ function showFormat(idInputFormat, idInputNumber, idResP) {
   if (sFormat === "0" || sFormat === "#"){
     sFormatedNum = nValue;
   } else if (nNumber[0] === "n" || nNumber[0] === "N"){
-    sFormatedNum = formatNumSharp(nNumber, nValue);
+    sFormatedNum = formatNumCSharp(nNumber, nValue);
   } else {
     sFormatedNum = formatNumDelphi(sFormat, nValue);
   }
@@ -65,13 +65,13 @@ const formatNumDelphi = (sFormat, nValue) => {
 };
 
 /**
- * formatNumSharp
+ * formatNumCSharp
  * returns a string with C# formatting;
  * @param {string} sFormat
  * @param {number} nNumber
  * @returns {string}
  */
-const formatNumSharp = (nNumber, nValue) => {
+const formatNumCSharp = (nNumber, nValue) => {
     const iDec = nNumber[1];
     const sNumber = arFormat(nValue, iDec);
     return sNumber;

@@ -1,7 +1,7 @@
 /**
  * arFormat returns a string with the input number using the Intl Library;
- * @param {number} iNumber 
- * @param {number} iDecs 
+ * @param {number} iNumber
+ * @param {number} iDecs
  * @returns {string}
  */
 const arFormat = (iNumber, iDecs) => {
@@ -14,7 +14,7 @@ const arFormat = (iNumber, iDecs) => {
 
 /**
  * readAfterDot counts how many decimal places the user wants to format the number entered in the input;
- * @param {string} sWord 
+ * @param {string} sWord
  * @returns {number}
  */
 function readAfterDot(sWord) {
@@ -31,12 +31,31 @@ function readAfterDot(sWord) {
 }
 
 /**
+ * rightFormat returns an array that will be used with C# formatting or with Delphi formatting;
+ * @param {string} sFormat 
+ * @returns {object}
+ */
+function rightFormat (sFormat){
+  if(sFormat[0] === 'n' || sFormat[0] === 'N'){
+    const regex = /([a-zA-Z]*)([0-9]+)/g;
+    const match = regex.exec(sFormat);
+    const oNumber = [match[1], match[2]];
+    return oNumber;
+  } else {
+    const regex = /([a-zA-Z#0]+)(\.[#0-9]+)/;
+    const match = regex.exec(sFormat);
+    const oNumber = [match[1], match[2]];
+    return oNumber;
+  }
+}
+
+/**
  * formatNumDelphi returns a string with Delphi formatting;
  *  @type {(sFormat: string, nNumber: number) => string} TypeScript syntax
  *  @type {formatNumDelphi(string, number): string} Closure syntax
  */
-const formatNumDelphi = (sFormat, nNumber) => {
-  const iDec = readAfterDot(sFormat);
+const formatNumDelphi = (oNumber, nNumber) => {
+  const iDec = readAfterDot(oNumber[1]);
   const sNumber = arFormat(nNumber, iDec);
   return sNumber;
 };
@@ -48,9 +67,9 @@ const formatNumDelphi = (sFormat, nNumber) => {
  * @returns {string}
  */
 const formatNumCSharp = (oNumber, nNumber) => {
-    const iDec = oNumber[1];
-    const sNumber = arFormat(nNumber, iDec);
-    return sNumber;
+  const iDec = oNumber[1];
+  const sNumber = arFormat(nNumber, iDec);
+  return sNumber;
 };
 
 /**
@@ -60,18 +79,14 @@ const formatNumCSharp = (oNumber, nNumber) => {
  * @returns {string}
  */
 export function showFormat(sFormat, nNumber) {
-  const regex = /([a-zA-Z]*)([0-9]+)/g;
-  const match = regex.exec(sFormat);
-  const oNumber = [match[1], match[2]];
-  console.log(oNumber)
-  console.log('formato: '+sFormat)
   let sFormatedNum;
-  if (sFormat === "0" || sFormat === "#"){
+  const oNumber = rightFormat(sFormat)
+  if (sFormat === "0" || sFormat === "#") {
     sFormatedNum = nNumber;
-  } else if (oNumber[0] === "n" || oNumber[0] === "N"){
+  } else if (oNumber[0] === "n" || oNumber[0] === "N") {
     sFormatedNum = formatNumCSharp(oNumber, nNumber);
   } else {
-    sFormatedNum = formatNumDelphi(sFormat, nNumber);
+    sFormatedNum = formatNumDelphi(oNumber, nNumber);
   }
   return sFormatedNum;
 }

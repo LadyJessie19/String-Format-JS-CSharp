@@ -1,54 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formatador</title>
-    
-    <style>
-        body{
-            text-align: center;
-        }
-        #mainCounter {
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-        .dFlex{
-            display: flex;
-            gap: 1rem;
-        }
-    </style>
+    <script src="format.js" type="module"></script>
+    <script src="testing.js" type="module"></script>
+    <title>Document</title>
 </head>
-
 <body>
-    <h1>Formatador Intl Lib</h1>
-        <div id="mainCounter">
-            <div class="dFlex">
-                <label for="formatSel">Insira o formato:</label>
-                <input type="text" id="formatSel" value="000.00">
-            </div>
-            <div class="dFlex">
-                <label for="inputDec">Insira o número:</label>
-                <input type="number" id="inputDec" value="1234">
-            </div>
-            <div class="dFlex">
-                <button id="buttonRes">Faça a formatação</button>
-            </div>
-            <p id="pRes">A resposta vai aparecer aqui</p>
-        </div>
-    </div>
-    <script src="format.js"></script>
-
-    <script>
-        /* Hi! This script is to execute the showFormat() function when the buttonRes is clicked. */
-        const button = document.getElementById('buttonRes')
-        button.addEventListener('click', () => showFormat('formatSel', 'inputDec', 'pRes'))
-    </script>
+    
 </body>
-
 </html>

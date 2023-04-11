@@ -33,41 +33,41 @@ function readAfterDot(sWord) {
 /**
  * rightFormat returns an array that will be used with C# formatting or with Delphi formatting;
  * @param {string} sFormat 
- * @returns {object}
+ * @returns {array}
  */
 function rightFormat (sFormat){
+  let aNumber;
   if(sFormat[0] === 'n' || sFormat[0] === 'N'){
     const regex = /([a-zA-Z]*)([0-9]+)/g;
     const match = regex.exec(sFormat);
-    const oNumber = [match[1], match[2]];
-    return oNumber;
+    aNumber = [match[1], match[2]];
   } else {
     const regex = /([a-zA-Z#0]+)(\.[#0-9]+)/;
     const match = regex.exec(sFormat);
-    const oNumber = [match[1], match[2]];
-    return oNumber;
+    aNumber = [match[1], match[2]];
   }
+  return aNumber;
 }
 
 /**
  * formatNumDelphi returns a string with Delphi formatting;
- *  @type {(sFormat: string, nNumber: number) => string} TypeScript syntax
- *  @type {formatNumDelphi(string, number): string} Closure syntax
+ * @param {string} sFormat
+ * @param {number} nNumber
+ * @returns {string}
  */
-const formatNumDelphi = (oNumber, nNumber) => {
-  const iDec = readAfterDot(oNumber[1]);
+const formatNumDelphi = (sFormat, nNumber) => {
+  const iDec = readAfterDot(sFormat);
   const sNumber = arFormat(nNumber, iDec);
   return sNumber;
 };
 
 /**
  * formatNumCSharp returns a string with C# formatting;
- * @param {object} oNumber
+ * @param {string} iDec
  * @param {number} nNumber
  * @returns {string}
  */
-const formatNumCSharp = (oNumber, nNumber) => {
-  const iDec = oNumber[1];
+const formatNumCSharp = (iDec, nNumber) => {
   const sNumber = arFormat(nNumber, iDec);
   return sNumber;
 };
@@ -78,15 +78,15 @@ const formatNumCSharp = (oNumber, nNumber) => {
  * @param {number} nNumber
  * @returns {string}
  */
-export function showFormat(sFormat, nNumber) {
+export function formatNum(sFormat, nNumber) {
   let sFormatedNum;
-  const oNumber = rightFormat(sFormat)
+  const aNumber = rightFormat(sFormat)
   if (sFormat === "0" || sFormat === "#") {
     sFormatedNum = nNumber;
-  } else if (oNumber[0] === "n" || oNumber[0] === "N") {
-    sFormatedNum = formatNumCSharp(oNumber, nNumber);
+  } else if (aNumber[0] === "n" || aNumber[0] === "N") {
+    sFormatedNum = formatNumCSharp(aNumber[1], nNumber);
   } else {
-    sFormatedNum = formatNumDelphi(oNumber, nNumber);
+    sFormatedNum = formatNumDelphi(aNumber[1], nNumber);
   }
   return sFormatedNum;
 }

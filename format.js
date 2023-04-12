@@ -32,19 +32,27 @@ function readAfterDot(sWord) {
 
 /**
  * rightFormat returns an array that will be used with C# formatting or with Delphi formatting;
- * @param {string} sFormat 
+ * @param {string} sFormat
  * @returns {array}
  */
-function rightFormat (sFormat){
+function rightFormat(sFormat) {
   let aNumber;
-  if(sFormat[0] === 'n' || sFormat[0] === 'N'){
+  if (sFormat[0] === "n" || sFormat[0] === "N") {
     const regex = /([a-zA-Z]*)([0-9]+)/g;
     const match = regex.exec(sFormat);
-    aNumber = [match[1], match[2]];
+    if (match === null) {
+      aNumber = [];
+    } else {
+      aNumber = [match[1], match[2]];
+    }
   } else {
     const regex = /([a-zA-Z#0]+)(\.[#0-9]+)/;
     const match = regex.exec(sFormat);
-    aNumber = [match[1], match[2]];
+    if (match === null) {
+      aNumber = [];
+    } else {
+      aNumber = [match[1], match[2]];
+    }
   }
   return aNumber;
 }
@@ -80,13 +88,15 @@ const formatNumCSharp = (iDec, nNumber) => {
  */
 export function formatNum(sFormat, nNumber) {
   let sFormatedNum;
-  const aNumber = rightFormat(sFormat)
+  const aNumber = rightFormat(sFormat);
   if (sFormat === "0" || sFormat === "#") {
     sFormatedNum = nNumber;
   } else if (aNumber[0] === "n" || aNumber[0] === "N") {
     sFormatedNum = formatNumCSharp(aNumber[1], nNumber);
-  } else {
+  } else if (aNumber.length > 1) {
     sFormatedNum = formatNumDelphi(aNumber[1], nNumber);
+  } else {
+    return "Formato não suportado";
   }
   return sFormatedNum;
 }

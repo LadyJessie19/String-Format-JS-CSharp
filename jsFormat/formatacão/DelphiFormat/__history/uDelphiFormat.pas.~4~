@@ -1,0 +1,48 @@
+unit uDelphiFormat;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Data.db,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Controls;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Label1: TLabel;
+    Edit2: TEdit;
+    Label2: TLabel;
+    Button1: TButton;
+    Memo1: TMemo;
+    ComboBox1: TComboBox;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+  var fldNum: TNumericField;
+begin
+
+  fldNum:= TNumericField.Create(self);
+
+  fldNum.DisplayFormat:= Edit2.Text;
+  fldNum.Value:= StrToFloatDef(Edit1.Text, 0);
+  Memo1.Lines.Add(fldNum.AsString());
+
+
+
+
+end;
+
+end.

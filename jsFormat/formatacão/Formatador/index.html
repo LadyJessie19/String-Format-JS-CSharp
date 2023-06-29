@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+     
+    <title>Formatador</title>
+</head>
+<body>
+    <h1>JsFormat</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ducimus sequi nostrum sed fugit, necessitatibus labore nulla nisi veniam? Enim harum magnam deserunt quis alias fuga laborum unde a ad. </p>
+    <div id="special">Esse texto aqui</div>
+    <button onclick="changeColor()">Mudar a cor</button>
+    <section id="formating">
+        <div>
+            <h3>Javascript Formater</h3>
+            <select name="formatOpts" id="formatOpts">
+                <option value="default" selected disabled>Choose your option</option>
+                <option value="float">Float</option>
+                <option value="int">Integer</option>
+                <option value="currency">Currency</option>
+                <option value="">Date</option>
+            </select>
+            <input type="text" id="inputFormat">
+            <input type="text" id="number">
+
+            <button onclick="showFormat()">Formatar</button>
+        </div>
+        <div>
+            <p id="res">The answer will appear in here</p>
+        </div>
+    </section>
+</body>
+</html>

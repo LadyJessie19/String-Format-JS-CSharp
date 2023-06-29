@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatador</title>
+    <script src="script.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+        .mainContainer {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .dFlex{
+            display: flex;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Formatador</h1>
+    <div class="mainContainer">
+        <div class="dFlex">
+            <label for="num">Número</label>
+            <input type="number" id="num" value="1234.567">
+            <label for="format">Formato</label>
+            <input type="text" id="format" value="N2">
+        </div>
+        <small class="resFormat">{0:N2}</small>
+        <button onclick="formatedJs()">Formatar</button>
+        <p class="numFormated">A resposta vai aparecer aqui</p>
+    <hr>
+    <h1>Formatador JS + C#</h1>
+    <div class="mainContainer">
+        <div class="dFlex">
+            <label for="formatSel">Insira o tipo:</label>
+            <select name="typeSel" id="typeSel">
+                <option value="default" disabled>Choose your option</option>
+                <option value="N" selected>Decimais</option>
+            </select>
+            <label for="qtdSel">Insira a qtd:</label>
+            <select name="qtdSel" id="qtdSel">
+                <option value="default" disabled>Choose your option</option>
+                <option value="2" selected>Dois</option>
+            </select>
+        </div>
+        <small class="resType">N2</small>
+        <div class="dFlex">
+            <label for="input">Insira o número:</label>
+            <input type="number" id="input" value="1234">
+        </div>
+        <p class="resNum">('O número formatado fica assim {0:N2}', number)</p>
+        <div class="dFlex">
+            <button onclick="newFormatNumber()">Formatar Número</button>
+        </div>
+        <p id="pNewRes">A resposta vai aparecer aqui</p>
+    </div>
+</body>
+
+</html>

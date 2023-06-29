@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021-02-10 12:30:31.000.106,=C:\Users\Miguel\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023-03-29 15:48:54.011,=C:\Users\Miguel\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023-03-29 15:56:03.135,D:\Cloud\OneDrive\SAtelier\Estagio\Jéssica\DelphiFormat\uDelphiForfmat.pas=C:\Users\Miguel\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023-03-29 15:56:03.135,D:\Cloud\OneDrive\SAtelier\Estagio\Jéssica\DelphiFormat\uDelphiForfmat.dfm=C:\Users\Miguel\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023-03-29 15:56:17.534,D:\Cloud\OneDrive\SAtelier\Estagio\Jéssica\DelphiFormat\uDelphiFormat.dfm=D:\Cloud\OneDrive\SAtelier\Estagio\Jéssica\DelphiFormat\uDelphiForfmat.dfm</Transaction>
+    <Transaction>2023-03-29 15:56:17.534,D:\Cloud\OneDrive\SAtelier\Estagio\Jéssica\DelphiFormat\uDelphiFormat.pas=D:\Cloud\OneDrive\SAtelier\Estagio\Jéssica\DelphiFormat\uDelphiForfmat.pas</Transaction>
+    <Transaction>2023-03-29 15:58:59.314,D:\Cloud\OneDrive\SAtelier\Estagio\Jéssica\DelphiFormat\DelphiFormat.dproj=C:\Users\Miguel\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

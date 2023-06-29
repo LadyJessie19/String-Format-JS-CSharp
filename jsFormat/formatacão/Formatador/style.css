@@ -1,0 +1,36 @@
+body{
+    background-color: bisque;
+}
+
+#inputs{
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+#inputs>input{
+    padding: 3px;
+    border-radius: 7px;
+    outline: none;
+    border: .5px solid gray;
+}
+
+button{
+    outline: none;
+    border: .5px solid gray;
+    padding: 3px;
+    border-radius: 7px;
+}
+
+button:hover{
+    background-color: rgb(233, 175, 27);
+    cursor: pointer;
+}
+
+#formating{
+    background-color: coral;
+    padding: .1rem .3rem;
+    width: 90vw;
+    height: 30vh;
+}

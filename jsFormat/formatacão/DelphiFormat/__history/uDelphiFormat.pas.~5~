@@ -1,0 +1,64 @@
+unit uDelphiFormat;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Data.db,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Datasnap.DBClient,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Label1: TLabel;
+    Edit2: TEdit;
+    Label2: TLabel;
+    Button1: TButton;
+    ComboBox1: TComboBox;
+    DataSource1: TDataSource;
+    ClientDataSet1: TClientDataSet;
+    DBGrid1: TDBGrid;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+  var
+    fld: TField;
+    ix: integer;
+begin
+
+  ix:= ComboBox1.ItemIndex;
+  if ( ix < 0 ) then exit;
+
+  DataSource1.Edit;
+  fld:=  DataSource1.DataSet.FieldDefs
+
+  fldNum.DisplayFormat:= Edit2.Text;
+  fldNum.AsFloat:= StrToFloatDef(Edit1.Text, 0);
+  Memo1.Lines.Add(fldNum.AsString);
+
+
+
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  ClientDataSet1.InsertRecord([12.2, 2023, 365.25, Date()] );
+
+end;
+
+end.

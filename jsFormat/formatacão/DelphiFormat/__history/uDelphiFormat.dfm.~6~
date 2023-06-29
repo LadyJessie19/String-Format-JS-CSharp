@@ -1,0 +1,135 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Teste de Display Format de Delphi'
+  ClientHeight = 272
+  ClientWidth = 641
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 17
+  object Label1: TLabel
+    Left = 32
+    Top = 24
+    Width = 30
+    Height = 17
+    Caption = '&Valor'
+    FocusControl = Edit1
+  end
+  object Label2: TLabel
+    Left = 336
+    Top = 25
+    Width = 49
+    Height = 17
+    Caption = '&Formato'
+    FocusControl = Edit2
+  end
+  object Edit1: TEdit
+    Left = 32
+    Top = 46
+    Width = 273
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Consolas'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    Text = '10.9'
+  end
+  object Edit2: TEdit
+    Left = 336
+    Top = 46
+    Width = 273
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Consolas'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    Text = '##.#;(##.#);'
+  end
+  object Button1: TButton
+    Left = 280
+    Top = 94
+    Width = 75
+    Height = 27
+    Caption = 'Formata&r'
+    Default = True
+    TabOrder = 3
+    OnClick = Button1Click
+  end
+  object ComboBox1: TComboBox
+    Left = 72
+    Top = 95
+    Width = 145
+    Height = 25
+    ItemIndex = 0
+    TabOrder = 2
+    Text = 'Ponto Flutuante'
+    Items.Strings = (
+      'Ponto Flutuante'
+      'Inteiro'
+      'Moeda'
+      'Data e Hora')
+  end
+  object DBGrid1: TDBGrid
+    Left = 32
+    Top = 127
+    Width = 577
+    Height = 120
+    DataSource = DataSource1
+    ReadOnly = True
+    TabOrder = 4
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+  object DataSource1: TDataSource
+    AutoEdit = False
+    DataSet = ClientDataSet1
+    Left = 432
+    Top = 96
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'fldFloat'
+        DataType = ftFloat
+      end
+      item
+        Name = 'fldInt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'fldCurrency'
+        DataType = ftCurrency
+      end
+      item
+        Name = 'fldDateTime'
+        DataType = ftDateTime
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    StoreDefs = True
+    Left = 312
+    Top = 144
+  end
+  object DataSetProvider1: TDataSetProvider
+    Left = 136
+    Top = 184
+  end
+end

@@ -1,0 +1,8 @@
+    General: 
+        ✔ Organizar o passo a passo deste format; @est(2023-04-24 14:00) @done(23-04-24 14:59)
+    
+        24/04: 
+            ☐ Explicar as funções;
+            ☐ Dividir o dateFormating em 2 funções;
+            ☐ Separar o material;
+            ✔ Entender o formatador de Delphi; @done(23-04-24 14:02)
